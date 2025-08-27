@@ -1,13 +1,12 @@
 # 💾 Tabla comparativa de Microcontroladores 
 
-> Selene Román Celis
+> Selene Román Celis - 27/08/2025
 
 ---
 
 ## Pulsera para detección de hipoglucemia nocturna
  La idea es un wearable que detecte signos fisiológicos de hipoglucemia nocturna usando sensores y un microcontrolador. Cuando identifica un episodio, la pulsera despierta al paciente mediante vibración, alarma sonora o incluso enviando una alerta al celular de un familiar.
 
----
 
 ## Microcontroladores
 
@@ -17,10 +16,16 @@
 - **nRF52840 Pro Micro**
 
 
-## 3) Alcance y Exclusiones
+## Tabla comparativa
 
-- **Incluye:** _Qué funcionalidades/entregables sí están en el proyecto._
-- **No incluye:** _Qué queda fuera para evitar malentendidos._
+| Característica     | Raspberry Pi Pico 2        | XIAO nRF52840 Sense    | ESP32-C3              | NRF52840 Pro-Micro   |
+|--------------------|----------------------------|-------------------------|-----------------------|----------------------|
+| Periféricos        | UART, SPI, I2C, PWM, PHY USB 1.1, PIO | UART, IIC, SPI, NFC, SWD, GPIO, ADC | GPIO, ADC, UART, I2C, SPI | ADC, PWM, SPI, I2C, UART, USB, GPIO |
+| Memoria            | SRAM: 520 KB<br>Flash: 4 MB | RAM: 256 KB<br>Flash: 1 MB<br>QSPI: 2 MB | SRAM: 400 KB<br>Flash: 4 MB | Flash: 1 MB<br>RAM: 256 KB |
+| Ecosistema         | Python, C/C++              | Arduino, Mbed, Zephyr  | ESP-IDF, Arduino, Mbed| Arduino, Zephyr      |
+| Costos             | $150–$180                  | $300–$500              | $80–$100              | $170–$200            |
+| Arquitectura       | Cortex-M33                 | Cortex-M4              | RISC-V                | Cortex-M4            |
+| Velocidad de trabajo | 150 MHz                   | 64 MHz                 | 160 MHz               | 64 MHz               |
 
 ---
 
