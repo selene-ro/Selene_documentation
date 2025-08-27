@@ -1,4 +1,4 @@
-# 💾 Tabla comparativa de Microcontroladores 
+#  🔛 Barrido de leds
 
 > Selene Román Celis - 27/08/2025
 

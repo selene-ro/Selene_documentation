@@ -1,4 +1,4 @@
-# 💾 Tabla comparativa de Microcontroladores 
+#  🎲 Contador binario 4 bits
 
 > Selene Román Celis - 27/08/2025
 

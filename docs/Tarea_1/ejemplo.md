@@ -10,9 +10,13 @@
 ## Microcontroladores
 
 - **Seeed Studio XIAO nRF52840 Sense**
+    <img src="../recursos/imgs/xiao_.jpg" alt="XIAO nRF52840 Sense" width="320">
 - **ESP32-C3**
+    <img src="../recursos/imgs/esp32.jpg" alt="ESP32-C3" width="320">
 - **Raspberry Pi Pico 2 (RP2350)**
+    <img src="../recursos/imgs/raspberry.jpg" alt="Raspberry Pi Pico 2" width="320">
 - **nRF52840 Pro Micro**
+    <img src="../recursos/imgs/promicro.jpg" alt="nRF52840 Pro Micro" width="320">
 
 
 ## Tabla comparativa
