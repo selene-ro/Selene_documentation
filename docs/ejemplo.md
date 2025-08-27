@@ -1,21 +1,30 @@
-# 💾 Tabla comparativa de Microcontroladores 
+# 📚 Ejemplo de Documentación del Proyecto
 
-> Selene Román Celis
-
----
-
-## Pulsera para detección de hipoglucemia nocturna
- La idea es un wearable que detecte signos fisiológicos de hipoglucemia nocturna usando sensores y un microcontrolador. Cuando identifica un episodio, la pulsera despierta al paciente mediante vibración, alarma sonora o incluso enviando una alerta al celular de un familiar.
+> Plantilla genérica para documentar proyectos académicos o de ingeniería.  
+> Copia y adapta las secciones según tu necesidad.
 
 ---
 
-## Microcontroladores
+## 1) Resumen
 
-- **Seeed Studio XIAO nRF52840 Sense**
-- **ESP32-C3**
-- **Raspberry Pi Pico 2 (RP2350)**
-- **nRF52840 Pro Micro**
+- **Nombre del proyecto:** _Mi Proyecto_  
+- **Equipo / Autor(es):** _Nombre(s)_  
+- **Curso / Asignatura:** _Nombre del curso_  
+- **Fecha:** _DD/MM/AAAA_  
+- **Descripción breve:** _Una o dos líneas que expliquen qué hace y por qué._
 
+!!! tip "Consejo"
+    Mantén este resumen corto (máx. 5 líneas). Lo demás va en secciones específicas.
+
+---
+
+## 2) Objetivos
+
+- **General:** _Qué se pretende lograr en términos amplios._
+- **Específicos:**
+  - _OE1…_
+  - _OE2…_
+  - _OE3…_
 
 ## 3) Alcance y Exclusiones
 
