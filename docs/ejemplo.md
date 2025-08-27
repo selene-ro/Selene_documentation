@@ -1,11 +1,10 @@
-# 📚 Ejemplo de Documentación del Proyecto
+# 💾 Tabla comparativa de Microcontroladores 
 
-> Plantilla genérica para documentar proyectos académicos o de ingeniería.  
-> Copia y adapta las secciones según tu necesidad.
+> Selene Román Celis
 
 ---
 
-## 1) Resumen
+## Pulsera para detección de hipoglucemia nocturna
 
 - **Nombre del proyecto:** _Mi Proyecto_  
 - **Equipo / Autor(es):** _Nombre(s)_  
