@@ -1,6 +1,4 @@
-# 💾 Tabla comparativa de Microcontroladores 
-
-> Selene Román Celis
+# Ejemplo
 
 ---
 

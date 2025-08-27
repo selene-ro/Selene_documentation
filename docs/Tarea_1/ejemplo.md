@@ -31,16 +31,13 @@
 ## Ranking
 
 **1. Seeed Studio XIAO nRF52840 Sense**
-- Este microcontrolador es la mejor opción para el proyecto por su tamaño compacto y gran potencia para procesar los datos de los sensores. Además, ya incluye modulo Bluetooth, lo cual es esencial para enviar las alertas a un celular cercano.
+:Este microcontrolador es la mejor opción para el proyecto por su tamaño compacto y gran potencia para procesar los datos de los sensores. Además, ya incluye modulo Bluetooth, lo cual es esencial para enviar las alertas a un celular cercano.
 
 **2. ESP32-C3**
-- Tiene como ventaja que incorpora Wi-fi y Bluetooth, lo que permite que la pulsera pueda enviar datos a un servidos en tiempo real. Además es muy económico. Tiene mayor consumo energético a comparación del XIAO nRF52840.
+:Tiene como ventaja que incorpora Wi-fi y Bluetooth, lo que permite que la pulsera pueda enviar datos a un servidos en tiempo real. Además es muy económico. Tiene mayor consumo energético a comparación del XIAO nRF52840.
 
 **3. Raspberry Pi Pico 2 (RP2350)**
-- Tiene una gran potencia de procesamiento y es económica. Se tendría que añadir un módulo BLE o Wi-Fi, lo que incrementa el tamaño y consumo. 
+:Tiene una gran potencia de procesamiento y es económica. Se tendría que añadir un módulo BLE o Wi-Fi, lo que incrementa el tamaño y consumo. 
 
 **4. nRF5284O Pro - Micro**
-- Está basado en el mismo chip nRF52840 que el XIAO, pero en un formato más grande y con menos integración de sensores. Aun así, tiene BLE integrado y un buen desempeño.
-
-
----
+:Está basado en el mismo chip nRF52840 que el XIAO, pero en un formato más grande y con menos integración de sensores. Aun así, tiene BLE integrado y un buen desempeño.
