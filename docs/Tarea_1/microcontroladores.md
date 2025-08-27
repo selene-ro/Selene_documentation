@@ -2,7 +2,6 @@
 
 > Selene Román Celis - 27/08/2025
 
----
 
 ## Pulsera para detección de hipoglucemia nocturna
  La idea es un wearable que detecte signos fisiológicos de hipoglucemia nocturna usando sensores y un microcontrolador. Cuando identifica un episodio, la pulsera despierta al paciente mediante vibración, alarma sonora o incluso enviando una alerta al celular de un familiar.
@@ -29,42 +28,19 @@
 
 ---
 
-## 4) Requisitos
+## Ranking
 
-**Software**
-- _SO compatible (Windows/Linux/macOS)_
-- _Python 3.x / Node 18+ / Arduino IDE / etc._
-- _Dependencias (p. ej., pip/requirements, npm packages)_
+**1. Seeed Studio XIAO nRF52840 Sense**
+- Este microcontrolador es la mejor opción para el proyecto por su tamaño compacto y gran potencia para procesar los datos de los sensores. Además, ya incluye modulo Bluetooth, lo cual es esencial para enviar las alertas a un celular cercano.
 
-**Hardware (si aplica)**
-- _MCU / Sensores / Actuadores / Fuente de poder_
-- _Herramientas (multímetro, cautín, etc.)_
+**2. ESP32-C3**
+- Tiene como ventaja que incorpora Wi-fi y Bluetooth, lo que permite que la pulsera pueda enviar datos a un servidos en tiempo real. Además es muy económico. Tiene mayor consumo energético a comparación del XIAO nRF52840.
 
-**Conocimientos previos**
-- _Programación básica en X_
-- _Electrónica básica_
-- _Git/GitHub_
+**3. Raspberry Pi Pico 2 (RP2350)**
+- Tiene una gran potencia de procesamiento y es económica. Se tendría que añadir un módulo BLE o Wi-Fi, lo que incrementa el tamaño y consumo. 
+
+**4. nRF5284O Pro - Micro**
+- Está basado en el mismo chip nRF52840 que el XIAO, pero en un formato más grande y con menos integración de sensores. Aun así, tiene BLE integrado y un buen desempeño.
+
 
 ---
-
-## 5) Instalación
-
-```bash
-# 1) Clonar
-git clone https://github.com/<usuario>/<repo>.git
-cd <repo>
-
-# 2) (Opcional) Crear entorno virtual
-python -m venv .venv
-# macOS/Linux
-source .venv/bin/activate
-# Windows (PowerShell)
-.venv\Scripts\Activate.ps1
-
-# 3) Instalar dependencias (ejemplos)
-pip install -r requirements.txt
-# o, si es Node:
-npm install
-
-
-```
