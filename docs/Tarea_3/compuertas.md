@@ -5,7 +5,7 @@
 ## Qué debe hacer
 Con dos botones A y B (pull-up; presionado=0) enciende tres LEDs que muestren en paralelo los resultados de AND, OR y XOR. En el video muestra las 4 combinaciones (00, 01, 10, 11).
 
- codigo
+```codigo
 #include "pico/stdlib.h"
 
 #define BTN_A   5   
@@ -43,7 +43,7 @@ int main() {
         sleep_ms(20);
     }
 }
-
+```
 ## Esquemático
 ![Diagrama del sistema](images/esquema2.png)
 
