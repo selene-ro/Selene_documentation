@@ -2,7 +2,7 @@
 
 > Selene Román Celis - 27/08/2025 
 
-## Que debe hacer
+## Qué debe hacer
  
 Correr un “1” por cinco LEDs P0..P3 y regresar (0→1→2→3→2→1…)
  
