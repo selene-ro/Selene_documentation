@@ -11,13 +11,13 @@ Programar un mini-Pong con 5 LEDs en línea y 2 botones usando interrupciones (I
 
 2. Golpe con ISR: cada botón genera una interrupción.
 
-- El BTN_L solo cuenta si, en el instante de la ISR, la pelota está en L1.
+* El BTN_L solo cuenta si, en el instante de la ISR, la pelota está en L1.
 
-- El BTN_R solo cuenta si, en el instante de la ISR, la pelota está en L5.
+* El BTN_R solo cuenta si, en el instante de la ISR, la pelota está en L5.
 
-- Si coincide, la pelota rebota: invierte su dirección.
+- _Si coincide, la pelota rebota: invierte su dirección._
 
-- Si no coincide (la pelota no está en el último LED de ese lado), el botón se ignora.
+- _Si no coincide (la pelota no está en el último LED de ese lado), el botón se ignora._
 
 3. Fallo y punto: si la pelota alcanza L1 y no hubo golpe válido del lado izquierdo en ese momento, anota el jugador derecho. Análogamente, si alcanza L5 sin golpe válido, anota el jugador izquierdo.
 
