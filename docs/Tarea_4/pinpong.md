@@ -2,28 +2,30 @@
 > Selene Román Celis - 04/09/2025 
 
 ## Qué debe hacer
+
 Programar un mini-Pong con 5 LEDs en línea y 2 botones usando interrupciones (ISR) para registrar el “golpe” del jugador exactamente cuando la “pelota” (un LED encendido) llega al extremo de su lado.
 
-Reglas del juego
-1.Pelota: es un único LED encendido que se mueve automáticamente de un extremo al otro (L1→L5→L1…) a un ritmo fijo.
+**Reglas del juego**
 
-2.Golpe con ISR: cada botón genera una interrupción.
+1. Pelota: es un único LED encendido que se mueve automáticamente de un extremo al otro (L1→L5→L1…) a un ritmo fijo.
 
--El BTN_L solo cuenta si, en el instante de la ISR, la pelota está en L1.
+2. Golpe con ISR: cada botón genera una interrupción.
 
--El BTN_R solo cuenta si, en el instante de la ISR, la pelota está en L5.
+- El BTN_L solo cuenta si, en el instante de la ISR, la pelota está en L1.
 
--Si coincide, la pelota rebota: invierte su dirección.
+- El BTN_R solo cuenta si, en el instante de la ISR, la pelota está en L5.
 
--Si no coincide (la pelota no está en el último LED de ese lado), el botón se ignora.
+- Si coincide, la pelota rebota: invierte su dirección.
 
-3.Fallo y punto: si la pelota alcanza L1 y no hubo golpe válido del lado izquierdo en ese momento, anota el jugador derecho. Análogamente, si alcanza L5 sin golpe válido, anota el jugador izquierdo.
+- Si no coincide (la pelota no está en el último LED de ese lado), el botón se ignora.
 
-4.Indicador de punto: al anotar, se parpadea el LED de punto 3 veces del jugador que metió el punto .
+3. Fallo y punto: si la pelota alcanza L1 y no hubo golpe válido del lado izquierdo en ese momento, anota el jugador derecho. Análogamente, si alcanza L5 sin golpe válido, anota el jugador izquierdo.
 
-5.Reinicio tras punto: después del parpadeo, la pelota se reinicia en el centro (L3) y comienza a moverse hacia el jugador que metió el punto.
+4. Indicador de punto: al anotar, se parpadea el LED de punto 3 veces del jugador que metió el punto .
 
-6.Inicio del juego: al encender, la pelota inicia en L3 y no se mueve hasta que se presione un boton y debera moverse a la direccion opuesta del boton presionado.
+5. Reinicio tras punto: después del parpadeo, la pelota se reinicia en el centro (L3) y comienza a moverse hacia el jugador que metió el punto.
+
+6. Inicio del juego: al encender, la pelota inicia en L3 y no se mueve hasta que se presione un boton y debera moverse a la direccion opuesta del boton presionado.
 
 ``` codigo
 #include "pico/stdlib.h"
