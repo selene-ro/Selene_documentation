@@ -29,60 +29,105 @@ Programar un mini-Pong con 5 LEDs en línea y 2 botones usando interrupciones (I
 
 ``` codigo
 #include "pico/stdlib.h"
- 
-#define LED0 0
-#define LED1 1
-#define LED2 2
-#define LED3 3
-#define B_AV 4
-#define B_RE 5
- 
-int main() {
-    // Máscara
-    const uint32_t LEDS_MASK = (1u<<LED0) | (1u<<LED1) | (1u<<LED2) | (1u<<LED3);
- 
-    gpio_init(LED0);
-    gpio_init(LED1);
-    gpio_init(LED2);
-    gpio_init(LED3);
-    gpio_set_dir(LED0, true);
-    gpio_set_dir(LED1, true);
-    gpio_set_dir(LED2, true);
-    gpio_set_dir(LED3, true);
- 
-    gpio_init(B_AV);
-    gpio_init(B_RE);
-    gpio_set_dir(B_AV, false);
-    gpio_set_dir(B_RE, false);
-    gpio_pull_up(B_AV);
-    gpio_pull_up(B_RE);
- 
-    int pos = 0;        
-    int estadoAV = 1;   // Estado previo botón A
-    int estadoRE = 1;   // Estado previo botón B
- 
-    while (true) {
-     
-        gpio_put_masked(LEDS_MASK, (1u << pos));
- 
-        if (gpio_get(B_AV) == 0 && estadoAV == 1) {
-            pos++;
-            if (pos > 3) pos = 0;
-        }
-        else if (gpio_get(B_RE) == 0 && estadoRE == 1) {
-            pos--;
-            if (pos < 0) pos = 3;
-        }
-        // Guardar estado
-        estadoAV = gpio_get(B_AV);
-        estadoRE = gpio_get(B_RE);
- 
-        sleep_ms(20);
+
+#define LED_1 0
+#define LED_2 1
+#define LED_3 2
+#define LED_4 3
+#define LED_5 4
+
+//Jugadores
+#define LED_J1 5
+#define LED_J2 6
+
+#define BTN_D 8 // Botón derecho
+#define BTN_I 7 // Botón izquierdo
+
+// Estado de la pelota
+int led_on = LED_3; 
+int direc = 0;
+
+int boton_d = 0;
+int boton_i = 0;
+
+
+void botones_dir(uint gpio, uint32_t events) {
+    if (gpio == BTN_D) boton_d = 1;
+    if (gpio == BTN_I) boton_i = 1;
+}
+
+// Led ganador
+void parpadeo(int led) {
+    for (int i = 0; i < 3; i++) {
+        gpio_put(led, 1);
+        sleep_ms(300);
+        gpio_put(led, 0);
+        sleep_ms(300);
     }
 }
+
+void init_pins() {
+    for (int i = LED_1; i <= LED_5; i++) {
+        gpio_init(i);
+        gpio_set_dir(i, true);
+    }
+
+    gpio_init(LED_J1); 
+    gpio_set_dir(LED_J1, true);
+    gpio_init(LED_J2); 
+    gpio_set_dir(LED_J2, true);
+
+    gpio_init(BTN_D); 
+    gpio_set_dir(BTN_D, false); 
+    gpio_pull_up(BTN_D);
+    gpio_init(BTN_I); 
+    gpio_set_dir(BTN_I, false); 
+    gpio_pull_up(BTN_I);
+
+    gpio_set_irq_enabled_with_callback(BTN_D, GPIO_IRQ_EDGE_FALL, true, &botones_dir);
+    gpio_set_irq_enabled_with_callback(BTN_I, GPIO_IRQ_EDGE_FALL, true, &botones_dir);
+}
+
+int main() {
+    stdio_init_all();
+    init_pins();
+
+    while (direc == 0) {
+        gpio_put(LED_3, 1);
+        if (boton_d) { direc = -1; boton_d = 0; } // Empieza botón derecho
+        if (boton_i) { direc = +1;  boton_i = 0; } // Empieza botón izquierdo
+        sleep_ms(100);
+    }
+
+    while (true) {
+    
+        for (int i = LED_1; i <= LED_5; i++) gpio_put(i, 0);
+        gpio_put(led_on, 1);
+        sleep_ms(800); // Velocidad
+
+        if (led_on == LED_1) {
+            if (boton_d) { direc = 1; } 
+            else { parpadeo(LED_J2); led_on = LED_3; direc = 1; } // Punto jugador derecho
+            boton_d = 0;
+        } 
+        else if (led_on == LED_5) {
+            if (boton_i) { direc = -1; } 
+            else { parpadeo(LED_J1); led_on = LED_3; direc = -1; } // Punto jugador izquierdo
+            boton_i = 0;
+        }
+
+        // Mover pelota
+        led_on += direc;
+
+        // Limite
+        if (led_on < LED_1) led_on = LED_1;
+        if (led_on > LED_5) led_on = LED_5;
+    }
+}
+
 ```
 ## Esquemático
 ![Diagrama del sistema](images/esquema4.png)
 
 ## Video
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tVQgv4xvnJc?si=f9M6IhCKlwHLMtzb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/27hgnbmd6Wk?si=w_6thkJ4J-pCuQ-1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
