@@ -47,12 +47,12 @@ Para comprobar el funcionamiento del generador de onda cuadrada mediante el togg
 En el esquema se muestra la forma de onda obtenida del osciloscopio.
 
 ## Esquema
-![Diagrama del sistema](images/osc_ms.png)
+![Diagrama del sistema](images/osc_ms.jpg)
 
 * **Periodo promedio medido:** 49.94 ms
 * **Tolerancia:** aproximadamente ±0.56 ms
 * **Jitter pico-a-pico:** ~560 µs
-
+---
 * **Acoplamiento:** CC
 * **Escala de tiempo:** 20 ms/div y 10 ms/div
 * **Escala de voltaje:** 1 V/div.
