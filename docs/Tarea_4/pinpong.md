@@ -29,6 +29,7 @@ Programar un mini-Pong con 5 LEDs en línea y 2 botones usando interrupciones (I
 
 ``` codigo
 #include "pico/stdlib.h"
+#include "hardware/gpio.h"   
 
 #define LED_1 0
 #define LED_2 1
@@ -36,27 +37,23 @@ Programar un mini-Pong con 5 LEDs en línea y 2 botones usando interrupciones (I
 #define LED_4 3
 #define LED_5 4
 
-//Jugadores
 #define LED_J1 5
 #define LED_J2 6
 
-#define BTN_D 8 // Botón derecho
-#define BTN_I 7 // Botón izquierdo
+#define B_D 7
+#define B_I 8
 
-// Estado de la pelota
-int led_on = LED_3; 
+int led_on = 2;
 int direc = 0;
-
 int boton_d = 0;
 int boton_i = 0;
 
 
-void botones_dir(uint gpio, uint32_t events) {
-    if (gpio == BTN_D) boton_d = 1;
-    if (gpio == BTN_I) boton_i = 1;
+void botones(uint gpio, uint32_t events) {
+    if (gpio == B_D) boton_d = 1;
+    if (gpio == B_I) boton_i = 1;
 }
 
-// Led ganador
 void parpadeo(int led) {
     for (int i = 0; i < 3; i++) {
         gpio_put(led, 1);
@@ -66,62 +63,74 @@ void parpadeo(int led) {
     }
 }
 
-void init_pins() {
-    for (int i = LED_1; i <= LED_5; i++) {
-        gpio_init(i);
-        gpio_set_dir(i, true);
-    }
-
+void init_leds() {
+    gpio_init(LED_1);
+    gpio_set_dir(LED_1, 1);
+    gpio_init(LED_2);
+    gpio_set_dir(LED_2, 1);
+    gpio_init(LED_3);
+    gpio_set_dir(LED_3, 1);
+    gpio_init(LED_4); 
+    gpio_set_dir(LED_4, 1);
+    gpio_init(LED_5); 
+    gpio_set_dir(LED_5, 1);
     gpio_init(LED_J1); 
-    gpio_set_dir(LED_J1, true);
+    gpio_set_dir(LED_J1, 1);
     gpio_init(LED_J2); 
-    gpio_set_dir(LED_J2, true);
+    gpio_set_dir(LED_J2, 1);
+}
 
-    gpio_init(BTN_D); 
-    gpio_set_dir(BTN_D, false); 
-    gpio_pull_up(BTN_D);
-    gpio_init(BTN_I); 
-    gpio_set_dir(BTN_I, false); 
-    gpio_pull_up(BTN_I);
+void init_botones() {
+    gpio_init(B_D); 
+    gpio_set_dir(B_D, 0);
+    gpio_pull_up(B_D);
+    
+    gpio_init(B_I); 
+    gpio_set_dir(B_I, 0);
+    gpio_pull_up(B_I);
 
-    gpio_set_irq_enabled_with_callback(BTN_D, GPIO_IRQ_EDGE_FALL, true, &botones_dir);
-    gpio_set_irq_enabled_with_callback(BTN_I, GPIO_IRQ_EDGE_FALL, true, &botones_dir);
+    // Interrupciones para botones
+    gpio_set_irq_enabled_with_callback(B_D, GPIO_IRQ_EDGE_FALL, true, &botones);
+    gpio_set_irq_enabled(B_I, GPIO_IRQ_EDGE_FALL, true); 
 }
 
 int main() {
-    stdio_init_all();
-    init_pins();
+    stdio_init_all(); 
+    init_leds();
+    init_botones();
+
 
     while (direc == 0) {
         gpio_put(LED_3, 1);
-        if (boton_d) { direc = -1; boton_d = 0; } // Empieza botón derecho
-        if (boton_i) { direc = +1;  boton_i = 0; } // Empieza botón izquierdo
-        sleep_ms(100);
+        if (boton_d) { direc = 1; boton_d = 0; }
+        if (boton_i) { direc = -1; boton_i = 0; }
+        sleep_ms(10);
     }
 
     while (true) {
-    
-        for (int i = LED_1; i <= LED_5; i++) gpio_put(i, 0);
+        // Apagar LED
+        gpio_put(LED_1, 0); gpio_put(LED_2, 0); gpio_put(LED_3, 0);
+        gpio_put(LED_4, 0); gpio_put(LED_5, 0);
+
         gpio_put(led_on, 1);
-        sleep_ms(800); // Velocidad
+        sleep_ms(500);
 
         if (led_on == LED_1) {
-            if (boton_d) { direc = 1; } 
-            else { parpadeo(LED_J2); led_on = LED_3; direc = 1; } // Punto jugador derecho
+            if (boton_d) direc = 1;
+            else {
+                 parpadeo(LED_J2); led_on = LED_2; direc = 1; 
+                }
             boton_d = 0;
         } 
         else if (led_on == LED_5) {
-            if (boton_i) { direc = -1; } 
-            else { parpadeo(LED_J1); led_on = LED_3; direc = -1; } // Punto jugador izquierdo
+            if (boton_i) direc = -1;
+            else { 
+                parpadeo(LED_J1); led_on = LED_4; direc = -1; 
+            }
             boton_i = 0;
         }
 
-        // Mover pelota
         led_on += direc;
-
-        // Limite
-        if (led_on < LED_1) led_on = LED_1;
-        if (led_on > LED_5) led_on = LED_5;
     }
 }
 
