@@ -1,4 +1,4 @@
-site_name: Plantilla para Documentación
+site_name: Documentación Selene 
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -29,7 +29,8 @@ theme:
   highlightjs: true 
   palette:
       - scheme: default
-        primary: red
+        primary: pink
+        accent: pink
 
   features:
     - content.code.copy
