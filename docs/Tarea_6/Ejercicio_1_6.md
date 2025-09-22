@@ -108,7 +108,7 @@ int main() {
     }
 }
 
-```
+```C++
 ## Esquemático
 ![Diagrama del sistema](images/esquema5.png)
 
