@@ -12,7 +12,7 @@ Genera una onda cuadrada por toggle de un pin de salida en la ISR de ALARM0, con
 *   Describe la configuración del osciloscopio (acoplamiento, escala de tiempo/voltaje, modo de medición). No cambiar la resolución del timer (mantener modo µs).
 
 
-``` codigo
+```C++
 // Blink con timer (SDK alto nivel): cambia BLINK_MS para ajustar
 #include "pico/stdlib.h"
 #include "pico/time.h"

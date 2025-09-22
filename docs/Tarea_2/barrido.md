@@ -6,7 +6,7 @@
  
 Correr un “1” por cinco LEDs P0..P3 y regresar (0→1→2→3→2→1…)
  
-``` Código
+```C++
 #include "pico/stdlib.h"
 #include "hardware/structs/sio.h"
  

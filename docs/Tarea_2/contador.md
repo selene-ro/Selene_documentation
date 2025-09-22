@@ -6,7 +6,7 @@
 ## Que debe hacer
 En cuatro leds debe mostrarse cada segundo la representación binaria del 0 al 15.
  
-``` Código
+```C++
 #include "pico/stdlib.h"
  
 #define PIN_A 0

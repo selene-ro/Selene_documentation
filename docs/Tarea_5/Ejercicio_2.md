@@ -17,7 +17,7 @@ Genera una señal por toggle en la ISR de ALARM0, primero en modo µs y luego en
 
 ## Código modo µs
 
-``` codigo
+```C++
 // Blink con timer (SDK alto nivel): cambia BLINK_MS para ajustar
 #include "pico/stdlib.h"
 #include "pico/time.h"
@@ -50,7 +50,7 @@ int main() {
 
 ## Código modo ciclos
 
-``` codigo
+```C++
 // Blink con timer de sistema (bajo nivel): programando ALARM0 e IRQ
 #include "pico/stdlib.h"
 #include "hardware/irq.h"
