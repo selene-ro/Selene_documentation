@@ -5,7 +5,7 @@
 
 Configurar ALARM0..ALARM3 del timer de sistema en modo µs. Cada alarma controla un LED distinto con un periodo propio. 
 
-``` codigo
+```C++ codigo
 #include "pico/stdlib.h"
 #include "hardware/irq.h"
 #include "hardware/structs/timer.h"
