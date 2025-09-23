@@ -144,8 +144,7 @@ int esperar_boton(int tiempo){
 // Genera semilla usando tiempo y botón presionado
 uint32_t semilla(int btn_i){
     uint32_t t = (uint32_t)(time_us_64() & 0xFFFFFFFF);
-    uint32_t g = sio_hw->gpio_in;
-    uint32_t seed = t ^ ((g << 13) | (g >> 19)) ^ (0x9E3779B1u * (uint32_t)(btn_i + 1));
+    uint32_t seed = t ^ (0x9E3779B1u * (uint32_t)(btn_i + 1));
     if (seed == 0) seed = 0xA5A5A5A5u;
     return seed;
 }
