@@ -51,9 +51,9 @@ int main() {
     }
 }
 ```
-*Valores para un fc≈100Hz*
-- R=1.6 kΩR 
-- C=1 μF  
+**Valores para un fc≈100Hz**
+-   R=1.6 kΩR 
+-   C=1 μF  
 
 ## Osciloscopio sin Filtro
 ![Diagrama del sistema](images/sen_sin.png)
