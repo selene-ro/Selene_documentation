@@ -9,6 +9,10 @@
 
 - Cada nota debe incluir su frecuencia y duración en el código.
 
+``` codigo
+!!! tip "Recomendación"
+    La mejor frecuencia de trabajo del buzzer es típicamente entre 532 Hz y 4 kHz y adaptar las notas a una octava que suene clara en ese rango.
+```
 ## Notas y Frecuencias Definidas
  
 | Nota | Frecuencia (Hz) |

@@ -7,6 +7,10 @@
 
 - Usar 2 botones para seleccionar entre 3 velocidades predefinidas (baja, media y alta).
 
+``` codigo
+!!! note "Nota"
+    No olvidar que el microcontrolador no entrega suficiente potencia, se debe usar un puente H o driver de motor para conectar el motor DC.
+```
 ## Valores de Duty
 
 - **Velocidad Alta = TOP** - Cuando el duty esta en 100%, la señal PWM está siempre en nivel alto.
