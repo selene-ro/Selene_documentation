@@ -51,6 +51,7 @@ Se recibe texto por USB-serial con los comandos siguientes (se aceptan minúscul
     - Respuesta: OK. Si i no existe → Error indice invalido. Si v fuera de rango → Error argumento invalido.
 
 2) **Modo Continuo**
+
 - Recorre todas las posiciones de la lista en orden, moviendo el servo e imprimiendo cada 1.5 s:
 
     - Formato: posX: V (por ejemplo, pos1: 90), donde X es base 1.
@@ -60,6 +61,7 @@ Se recibe texto por USB-serial con los comandos siguientes (se aceptan minúscul
 - Al cambiar a otro modo, el ciclo se detiene inmediatamente.
 
 3) **Modo Step**
+
 - BTN_NEXT: avanza una posición (si ya está en la última, se mantiene en esa última).
 
 - BTN_PREV: retrocede una posición (si ya está en la primera, se mantiene en la primera).
@@ -75,6 +77,7 @@ Se recibe texto por USB-serial con los comandos siguientes (se aceptan minúscul
 !!! tip "INFO IMPORTANTE"
     El movimiento de un servo requiere alimentacion 5-6v y en el pin de signal, un pwm a 50 HZ con un pulso de 1-2ms que representa 0-180 grados
 
+## Código
  
 ```C++
 #include "pico/stdlib.h"
@@ -248,3 +251,5 @@ int main() {
 
 ```
 ## Video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OEoOnKEzKU0?si=HAzSl6GpfTsAwgLs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
