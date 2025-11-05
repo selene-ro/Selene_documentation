@@ -7,6 +7,8 @@
 
 - Construir un filtro RC pasabajos básico y verificar la señal en el osciloscopio
 
+## Código
+
 ```C++ 
 #include "pico/stdlib.h"
 #include "hardware/pwm.h"

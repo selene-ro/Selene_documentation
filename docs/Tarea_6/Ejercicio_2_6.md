@@ -5,6 +5,8 @@
 
 Modificar el Mini-Pong, para tener dos botones adicionales, que suban y bajen la velocidad del juego sin delay.
 
+## Código
+
 ```C++
 #include "pico/stdlib.h"
 #include "hardware/irq.h"

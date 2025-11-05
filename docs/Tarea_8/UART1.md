@@ -7,7 +7,7 @@ Este código permite encender y apagar un LED mediante un botón físico.
 Cada vez que se presiona el botón, el LED cambia de estado: si está apagado se enciende (“LED ON”) y si está encendido se apaga (“LED OFF”).
  
  
-**Código Envío**
+## **Código Envío**
  
 ```C++
  
@@ -65,7 +65,7 @@ int main() {
  
 ```
  
-**Código Recepción**
+## **Código Recepción**
  
 ```C++
  

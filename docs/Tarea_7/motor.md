@@ -30,6 +30,8 @@
 
     - Duty máximo 255 / 1023 ≈ 25%
 
+## Código
+
 ```C++
 #include "pico/stdlib.h"
 #include "hardware/pwm.h"

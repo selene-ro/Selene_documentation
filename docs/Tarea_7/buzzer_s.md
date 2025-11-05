@@ -46,6 +46,8 @@
 | 6 | Sol - Fa - Mi - La - Fa |
 | 7 | Sol - Fa - Mi - La - Fa - Do - Si - La - Fa |
 
+## Código
+
 ```C++ 
 #include "pico/stdlib.h"
 #include "hardware/pwm.h"

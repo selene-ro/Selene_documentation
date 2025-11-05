@@ -27,6 +27,8 @@ Programar un mini-Pong con 5 LEDs en línea y 2 botones usando interrupciones (I
 
 6. Inicio del juego: al encender, la pelota inicia en L3 y no se mueve hasta que se presione un boton y debera moverse a la direccion opuesta del boton presionado.
 
+## Código
+
 ```C++
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"   

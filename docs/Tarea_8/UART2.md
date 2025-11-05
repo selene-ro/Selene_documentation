@@ -6,7 +6,7 @@
 Este código permite controlar el encendido y apagado de un LED desde el monitor serial.
 El usuario escribe los comandos “LED ON” o “LED OFF” en la terminal, y el microcontrolador ejecuta la acción correspondiente.
  
-**Código Recepción**
+## **Código Recepción**
  
 ```C++
 
@@ -66,7 +66,7 @@ int main() {
 
 ```
   
-**Código Envío**
+## **Código Envío**
  
  
 ```C++
